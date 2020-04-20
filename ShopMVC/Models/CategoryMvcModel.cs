@@ -9,7 +9,6 @@ namespace ShopMVC.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-
-        //public ICollection<TovarMvcModel> Tovar { get; set; }
+        public object TovarModels { get; set; }
     }
 }

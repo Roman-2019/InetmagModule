@@ -1,4 +1,6 @@
-﻿using ShopAPI.Models;
+﻿using AutoMapper;
+using ShopAPI.Models;
+using ShopBLL.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,22 +12,36 @@ namespace ShopAPI.Controllers
 {
     public class TovarController : ApiController
     {
-
+        /*
         List<TovarApiModel> list;
         public TovarController()
         {
             list = new List<TovarApiModel>
             {
-                new TovarApiModel{Id=1,Name="ashdjshahkjdksjf",Price=500,CategoryId=1 },
-                new TovarApiModel{Id=2,Name="qwtyetywqewyury",Price=1000,CategoryId=2 },
-                new TovarApiModel{Id=3,Name="zxcnbzxvxcz",Price=750,CategoryId=1 }
+                new TovarApiModel{Id=1,Name="ashdjshahkjdksjf",Price=500,CategoryApiModelId=1 },
+                new TovarApiModel{Id=2,Name="qwtyetywqewyury",Price=1000,CategoryApiModelId=2 },
+                new TovarApiModel{Id=3,Name="zxcnbzxvxcz",Price=750,CategoryApiModelId=1 }
             };
         }
+        */
+
+        private readonly ITovarService _tovarService;
+        private readonly IMapper _mapper;
+
+        public TovarController(ITovarService tovarService, IMapper mapper)
+        {
+            _mapper = mapper;
+            _tovarService = tovarService;
+        }
+
 
         // GET: api/Tovar
-        public IEnumerable<TovarApiModel> Get()
+        [HttpGet]
+        public IHttpActionResult GetAll()
         {
-            return list;
+            return Ok(_tovarService.GetAll());
+
+            //return list;
         }
 
         // GET: api/Tovar/5

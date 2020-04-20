@@ -10,6 +10,6 @@ namespace ShopAPI.Models
         public int Id { get; set; }
         public string Name { get; set; }
 
-        public ICollection<TovarApiModel> Tovar { get; set; }
+        public ICollection<TovarApiModel> TovarApiModel { get; set; }
     }
 }

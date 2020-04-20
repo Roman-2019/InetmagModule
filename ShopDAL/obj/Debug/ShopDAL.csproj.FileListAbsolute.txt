@@ -1,0 +1,11 @@
+E:\C\MVC\InetMag\ShopDAL\obj\Debug\ShopDAL.csprojAssemblyReference.cache
+E:\C\MVC\InetMag\ShopDAL\bin\Debug\ShopDAL.exe.config
+E:\C\MVC\InetMag\ShopDAL\bin\Debug\ShopDAL.exe
+E:\C\MVC\InetMag\ShopDAL\bin\Debug\ShopDAL.pdb
+E:\C\MVC\InetMag\ShopDAL\bin\Debug\EntityFramework.dll
+E:\C\MVC\InetMag\ShopDAL\bin\Debug\EntityFramework.SqlServer.dll
+E:\C\MVC\InetMag\ShopDAL\bin\Debug\EntityFramework.xml
+E:\C\MVC\InetMag\ShopDAL\bin\Debug\EntityFramework.SqlServer.xml
+E:\C\MVC\InetMag\ShopDAL\obj\Debug\ShopDAL.csproj.CopyComplete
+E:\C\MVC\InetMag\ShopDAL\obj\Debug\ShopDAL.exe
+E:\C\MVC\InetMag\ShopDAL\obj\Debug\ShopDAL.pdb

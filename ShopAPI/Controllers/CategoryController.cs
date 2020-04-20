@@ -1,4 +1,6 @@
-﻿using ShopAPI.Models;
+﻿using AutoMapper;
+using ShopAPI.Models;
+using ShopBLL.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +12,7 @@ namespace ShopAPI.Controllers
 {
     public class CategoryController : ApiController
     {
-
+        /*
         List<CategoryApiModel> list;
         public CategoryController()
         {
@@ -21,11 +23,24 @@ namespace ShopAPI.Controllers
                 new CategoryApiModel{Id=3,Name="c3333333333"}
             };
         }
+        */
+
+        private readonly ICategoryService _categoryService;
+        private readonly IMapper _mapper;
+
+        public CategoryController(ICategoryService categoryService, IMapper mapper)
+        {
+            _mapper = mapper;
+            _categoryService = categoryService;
+        }
+
 
         // GET: api/Category
-        public IEnumerable<CategoryApiModel> Get()
+        [HttpGet]
+        public IHttpActionResult GetAll()
         {
-            return list;
+            return Ok(_categoryService.GetAll());
+            //return list;
         }
 
         // GET: api/Category/5
