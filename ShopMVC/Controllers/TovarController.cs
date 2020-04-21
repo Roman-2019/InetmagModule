@@ -10,7 +10,7 @@ namespace ShopMVC.Controllers
     public class TovarController : Controller
     {
 
-        private readonly TovarApiService _tovarApiService;
+        private readonly ITovarApiService _tovarApiService;
         public TovarController()
         {
             _tovarApiService = new TovarApiService();

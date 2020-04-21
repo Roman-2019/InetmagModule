@@ -129,8 +129,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\CategoryMvcModel.cs" />
-    <Compile Include="Models\TovarMvcModel.cs" />
+    <Compile Include="Models\CategoryModels.cs" />
+    <Compile Include="Models\TovarModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Servces\CategoryApiService.cs" />
     <Compile Include="Servces\TovarApiService.cs" />

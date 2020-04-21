@@ -9,7 +9,7 @@ namespace ShopMVC.Servces
 {
     public interface ITovarApiService
     {
-        IList<TovarMvcModel> TovarApiServiceGetAll();
+        IList<TovarModels> TovarApiServiceGetAll();
     }
 
 
@@ -18,18 +18,18 @@ namespace ShopMVC.Servces
         private readonly RestClient _restClient;
         public TovarApiService()
         {
-            _restClient = new RestClient("https://inetmag.shop/");
+            _restClient = new RestClient("http://inetmag.shop/");
         }
 
 
-        public IList<TovarMvcModel> TovarApiServiceGetAll()
+        public IList<TovarModels> TovarApiServiceGetAll()
         {
             var urlApi = "api/Tovar/";
             //var requestApi = new RestRequest(urlApi, Method.GET);
             //var modelData = _restClient.Execute<List<TovarMvcModel>>(requestApi).Data;
 
             var requestApi = new RestRequest(urlApi);
-            var modelData = _restClient.Execute<List<TovarMvcModel>>(requestApi, Method.GET).Data;
+            var modelData = _restClient.Execute<List<TovarModels>>(requestApi, Method.GET).Data;
             return modelData;
         }
     }

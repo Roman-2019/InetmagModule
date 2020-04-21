@@ -5,12 +5,10 @@ using System.Web;
 
 namespace ShopMVC.Models
 {
-    public class TovarMvcModel
+    public class CategoryModels
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public int Price { get; set; }
-        public int CategoryModelId { get; set; }
-        public object CategoryModels { get; set; }
+        public object TovarModels { get; set; }
     }
 }

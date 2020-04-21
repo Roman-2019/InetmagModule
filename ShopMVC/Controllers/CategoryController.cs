@@ -10,7 +10,7 @@ namespace ShopMVC.Controllers
     public class CategoryController : Controller
     {
 
-        private readonly CategoryApiService _categoryApiService;
+        private readonly ICategoryApiService _categoryApiService;
         public CategoryController()
         {
             _categoryApiService = new CategoryApiService();

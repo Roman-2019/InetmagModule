@@ -9,7 +9,7 @@ namespace ShopMVC.Servces
 {
     public interface ICategoryApiService
     {
-        IEnumerable<CategoryMvcModel> CategoryApiServiceGetAll();
+        IEnumerable<CategoryModels> CategoryApiServiceGetAll();
     }
 
 
@@ -18,15 +18,15 @@ namespace ShopMVC.Servces
         private readonly RestClient _restClient;
         public CategoryApiService()
         {
-            _restClient = new RestClient("https://inetmag.shop/");
+            _restClient = new RestClient("http://inetmag.shop/");
         }
 
 
-        public IEnumerable<CategoryMvcModel> CategoryApiServiceGetAll()
+        public IEnumerable<CategoryModels> CategoryApiServiceGetAll()
         {
             var urlApi = "api/Category/";
             var requestApi = new RestRequest(urlApi);
-            var modelData = _restClient.Execute<List<CategoryMvcModel>>(requestApi, Method.GET).Data;
+            var modelData = _restClient.Execute<List<CategoryModels>>(requestApi, Method.GET).Data;
             return modelData;
         }
     }
