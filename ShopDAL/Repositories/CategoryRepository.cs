@@ -8,32 +8,32 @@ using System.Threading.Tasks;
 
 namespace ShopDAL.Repositories
 {
-    public class CategoryRepository : IRepository<Category>//ShopRepository<Tovar>, IRepository<Tovar>
+    public class CategoryRepository : ShopRepository<Category>, IRepository<Category>  //IRepository<Category>//
     {
 
-        //public TovarRepository(MyDBContext ctx) : base(ctx)
+        public CategoryRepository(MyDBContext ctx) : base(ctx)
+        {
+        }
+
+        //List<Category> list;
+        //public CategoryRepository()
         //{
+        //    list = new List<Category>
+        //    {
+        //        new Category{Id=1,Name="a1111111111"},
+        //        new Category{Id=2,Name="b2222222222"},
+        //        new Category{Id=3,Name="c3333333333"}
+        //    };
         //}
 
-        List<Category> list;
-        public CategoryRepository()
-        {
-            list = new List<Category>
-            {
-                new Category{Id=1,Name="a1111111111"},
-                new Category{Id=2,Name="b2222222222"},
-                new Category{Id=3,Name="c3333333333"}
-            };
-        }
+        //public IEnumerable<Category> GetAll()
+        //{
+        //    return list;
+        //}
 
-        public IEnumerable<Category> GetAll()
-        {
-            return list;
-        }
-
-        public Category GetById(int id)
-        {
-            throw new NotImplementedException();
-        }
+        //public Category GetById(int id)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }
