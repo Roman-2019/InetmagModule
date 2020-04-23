@@ -39,39 +39,13 @@ namespace ShopMVC.Controllers
         
         public ActionResult DetailsTovar(int id)
         {
-            //var tovars = tovarApiService.TovarApiServiceGetAll();
-            //var categories = _categoryApiService.CategoryApiServiceGetAll();
-            //tovars = tovars.Where(t=>t.CategoryModelId=categories.Where(c=>c.Id==id));
-
-            //CategoryModels. = db.Players.Where(m => m.TeamId == team.Id);
-            //var categoryTovars = _categoryApiService.CategoryTovarsApiServiceGetById(id);
-            //return View(categoryTovars);          
-            /*
-            var products = tovarApiService.TovarApiServiceGetAll();
-            var productsModel = _mapper.Map<IEnumerable<TovarModels>>(products);
-
-            if (id != null && id != 0)
-            {
-                productsModel = productsModel.Where(x => x.CategoryModelId == id);
-            }
-
-            var categories = _categoryApiService.CategoryApiServiceGetAll();
-            var categoriesModel = _mapper.Map<IEnumerable<CategoryModels>>(categories);
-
-            TovarCategory productsList = new TovarCategory
-            {
-                Products = productsModel,
-                Categories = new SelectList(categoriesModel, "Id", "Name ")
-            };
-
-            return View(productsList);
-            */
             var category = _categoryApiService.CategoryApiServiceGetById(id);
             var tovars = tovarApiService.TovarApiServiceGetAll();
             //var categories = _categoryApiService.CategoryApiServiceGetAll();
 
-            category.TovarModels = tovars.Where(t => t.CategoryModelId == category.Id);
-            return View(category);
+            tovars = tovars.Where(t => t.CategoryModelId == category.Id);
+            return View(tovars);
+
         }
 
         // GET: Category/Create

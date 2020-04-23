@@ -186,8 +186,9 @@
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\Tovar\Details.cshtml" />
     <Content Include="Views\Category\Details.cshtml" />
-    <Content Include="Views\Category\DetailsTovar.cshtml" />
+    <Content Include="Views\Category\DetailTovar.cshtml" />
     <Content Include="Views\Tovar\TovarByCategory.cshtml" />
+    <Content Include="Views\Category\DetailsTovar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

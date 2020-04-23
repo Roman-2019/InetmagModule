@@ -15,10 +15,7 @@ namespace ShopMVC.Controllers
         private readonly ITovarApiService _tovarApiService;
         private readonly ICategoryApiService _categoryApiService;
 
-        //public TovarController()
-        //{       
-        //}
-        public TovarController()
+       public TovarController()
         {
             _tovarApiService = new TovarApiService();
             _categoryApiService = new CategoryApiService();
@@ -43,8 +40,6 @@ namespace ShopMVC.Controllers
 
         public ActionResult TovarByCategory(int? id)
         {
-            //var tovars = _tovarApiService.TovarApiServiceGetAll();
-            //var tovarsModel = _mapper.Map<IEnumerable<TovarModels>>(tovars);
             var tovarsModel = _tovarApiService.TovarApiServiceGetAll();
 
             if (id != null && id != 0)
@@ -52,17 +47,15 @@ namespace ShopMVC.Controllers
                 tovarsModel = tovarsModel.Where(x => x.CategoryModels.Id == id);
             }
 
-            //var categories = _categoryApiService.CategoryApiServiceGetAll();
-            //var categoriesModel = _mapper.Map<IEnumerable<CategoryModels>>(categories);
             var categoriesModel = _categoryApiService.CategoryApiServiceGetAll();
 
-            TovarCategory tovarssList = new TovarCategory
+            TovarCategory tovarsList = new TovarCategory
             {
                 Tovars = tovarsModel,
                 Categories = new SelectList(categoriesModel, "Id", "Name ")
             };
 
-            return View(tovarssList);
+            return View(tovarsList);
         }
 
 

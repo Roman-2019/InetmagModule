@@ -1,37 +1,46 @@
-﻿@model ShopMVC.Models.CategoryModels
+﻿@model IEnumerable<ShopMVC.Models.TovarModels>
 
 @{
     ViewBag.Title = "DetailsTovar";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details for Category</h2>
+<h2>DetailsTovar</h2>
 
-<div>
-    <h4>CategoryModels</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt>Tovars</dt>
-        <dd>
-            <ul>
-                @foreach (var tovar in Model.TovarModels)
-                {
-                    <td>
-                        @Html.DisplayFor(category => tovar.Name)
-                    </td>
-                }
-            </ul>
-        </dd>
-</dl>
-</div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Create New", "Create")
 </p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CategoryModelId)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CategoryModelId)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
