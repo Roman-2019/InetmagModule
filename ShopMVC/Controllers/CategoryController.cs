@@ -1,4 +1,6 @@
-﻿using ShopMVC.Servces;
+﻿using AutoMapper;
+using ShopMVC.Models;
+using ShopMVC.Servces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +13,12 @@ namespace ShopMVC.Controllers
     {
 
         private readonly ICategoryApiService _categoryApiService;
+        private readonly ITovarApiService tovarApiService;
+        private readonly IMapper _mapper;
         public CategoryController()
         {
             _categoryApiService = new CategoryApiService();
+            tovarApiService = new TovarApiService();
         }
 
         // GET: Category
@@ -27,7 +32,46 @@ namespace ShopMVC.Controllers
         // GET: Category/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var category = _categoryApiService.CategoryApiServiceGetById(id);
+            return View(category);
+        }
+
+        
+        public ActionResult DetailsTovar(int id)
+        {
+            //var tovars = tovarApiService.TovarApiServiceGetAll();
+            //var categories = _categoryApiService.CategoryApiServiceGetAll();
+            //tovars = tovars.Where(t=>t.CategoryModelId=categories.Where(c=>c.Id==id));
+
+            //CategoryModels. = db.Players.Where(m => m.TeamId == team.Id);
+            //var categoryTovars = _categoryApiService.CategoryTovarsApiServiceGetById(id);
+            //return View(categoryTovars);          
+            /*
+            var products = tovarApiService.TovarApiServiceGetAll();
+            var productsModel = _mapper.Map<IEnumerable<TovarModels>>(products);
+
+            if (id != null && id != 0)
+            {
+                productsModel = productsModel.Where(x => x.CategoryModelId == id);
+            }
+
+            var categories = _categoryApiService.CategoryApiServiceGetAll();
+            var categoriesModel = _mapper.Map<IEnumerable<CategoryModels>>(categories);
+
+            TovarCategory productsList = new TovarCategory
+            {
+                Products = productsModel,
+                Categories = new SelectList(categoriesModel, "Id", "Name ")
+            };
+
+            return View(productsList);
+            */
+            var category = _categoryApiService.CategoryApiServiceGetById(id);
+            var tovars = tovarApiService.TovarApiServiceGetAll();
+            //var categories = _categoryApiService.CategoryApiServiceGetAll();
+
+            category.TovarModels = tovars.Where(t => t.CategoryModelId == category.Id);
+            return View(category);
         }
 
         // GET: Category/Create

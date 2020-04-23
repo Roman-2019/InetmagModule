@@ -44,9 +44,10 @@ namespace ShopAPI.Controllers
         }
 
         // GET: api/Category/5
-        public string Get(int id)
+        [HttpGet]
+        public IHttpActionResult Get(int id)
         {
-            return "value";
+            return Ok(_categoryService.GetById(id));
         }
 
         // POST: api/Category

@@ -85,3 +85,10 @@ E:\C\MVC\InetMag\ShopMVC\obj\Debug\ShopMVC.csprojAssemblyReference.cache
 E:\C\MVC\InetMag\ShopMVC\obj\Debug\ShopMVC.csproj.CopyComplete
 E:\C\MVC\InetMag\ShopMVC\obj\Debug\ShopMVC.dll
 E:\C\MVC\InetMag\ShopMVC\obj\Debug\ShopMVC.pdb
+E:\C\MVC\InetMag\ShopMVC\bin\AutoMapper.dll
+E:\C\MVC\InetMag\ShopMVC\bin\EntityFramework.dll
+E:\C\MVC\InetMag\ShopMVC\bin\EntityFramework.SqlServer.dll
+E:\C\MVC\InetMag\ShopMVC\bin\AutoMapper.pdb
+E:\C\MVC\InetMag\ShopMVC\bin\AutoMapper.xml
+E:\C\MVC\InetMag\ShopMVC\bin\EntityFramework.xml
+E:\C\MVC\InetMag\ShopMVC\bin\EntityFramework.SqlServer.xml

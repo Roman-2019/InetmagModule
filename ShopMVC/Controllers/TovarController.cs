@@ -1,4 +1,6 @@
-﻿using ShopMVC.Servces;
+﻿using AutoMapper;
+using ShopMVC.Models;
+using ShopMVC.Servces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +11,17 @@ namespace ShopMVC.Controllers
 {
     public class TovarController : Controller
     {
-
+        private readonly IMapper _mapper;
         private readonly ITovarApiService _tovarApiService;
+        private readonly ICategoryApiService _categoryApiService;
+
+        //public TovarController()
+        //{       
+        //}
         public TovarController()
         {
             _tovarApiService = new TovarApiService();
+            _categoryApiService = new CategoryApiService();
         }
 
 
@@ -28,8 +36,36 @@ namespace ShopMVC.Controllers
         // GET: Tovar/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var tovar = _tovarApiService.TovarApiServiceGetById(id);
+            return View(tovar);
         }
+
+
+        public ActionResult TovarByCategory(int? id)
+        {
+            //var tovars = _tovarApiService.TovarApiServiceGetAll();
+            //var tovarsModel = _mapper.Map<IEnumerable<TovarModels>>(tovars);
+            var tovarsModel = _tovarApiService.TovarApiServiceGetAll();
+
+            if (id != null && id != 0)
+            {
+                tovarsModel = tovarsModel.Where(x => x.CategoryModels.Id == id);
+            }
+
+            //var categories = _categoryApiService.CategoryApiServiceGetAll();
+            //var categoriesModel = _mapper.Map<IEnumerable<CategoryModels>>(categories);
+            var categoriesModel = _categoryApiService.CategoryApiServiceGetAll();
+
+            TovarCategory tovarssList = new TovarCategory
+            {
+                Tovars = tovarsModel,
+                Categories = new SelectList(categoriesModel, "Id", "Name ")
+            };
+
+            return View(tovarssList);
+        }
+
+
 
         // GET: Tovar/Create
         public ActionResult Create()

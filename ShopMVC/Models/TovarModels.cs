@@ -11,6 +11,6 @@ namespace ShopMVC.Models
         public string Name { get; set; }
         public int Price { get; set; }
         public int CategoryModelId { get; set; }
-        public object CategoryModels { get; set; }
+        public CategoryModels CategoryModels { get; set; }
     }
 }

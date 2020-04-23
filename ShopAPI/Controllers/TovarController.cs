@@ -45,10 +45,12 @@ namespace ShopAPI.Controllers
         }
 
         // GET: api/Tovar/5
-        public string Get(int id)
+        [HttpGet]
+        public IHttpActionResult Get(int id)
         {
-            return "value";
+            return Ok(_tovarService.GetById(id));
         }
+
 
         // POST: api/Tovar
         public void Post([FromBody]string value)
