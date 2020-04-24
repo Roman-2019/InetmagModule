@@ -59,7 +59,6 @@ namespace ShopMVC.Controllers
         }
 
 
-
         // GET: Tovar/Create
         public ActionResult Create()
         {
